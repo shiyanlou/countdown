@@ -11,7 +11,9 @@ function SetTime()
 
 function _exit()
 {
-    mocp -x
+    if [ -n "$music" ];then
+        mocp -x
+    fi
     exit 0
 }
 
@@ -36,10 +38,12 @@ SetTime
 s_seconds=`date -d $s_time +%s`
 c_seconds=`date +%s`
 e_seconds=$((s_seconds - c_seconds))
-./countdown $option $e_seconds $info
+./disclock $option $e_seconds $info
 if [ $? -eq 0 ];then
-    mocp -S $music
-    mocp -p
+    if [ -n "$music" ];then
+        mocp -S $music
+        mocp -p
+    fi
     zenity --info --width=100 --text=$info
     if [ $? -eq 0 ];then
         _exit

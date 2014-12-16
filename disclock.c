@@ -72,7 +72,7 @@ char digit[11][5][5] = {
 	  { 0,0,0,0,0 } }
 };
 
-void display_a_digit(WINDOW *win, char digit[5][5], uint8_t isnear)
+void display_a_digit(WINDOW *win, char digit[5][5], char isnear)
 {
     int y, x;
     int color;
@@ -127,7 +127,7 @@ void destory_all_win(WINDOW *win)
 
 int main(int argc, char *argv[])
 {
-    uint8_t isnear;
+    char isnear;
     int screen_width, screen_height;
     int i;
     int hour_tens, hour_units, min_tens, min_units, sec_tens, sec_units;
@@ -215,7 +215,6 @@ int main(int argc, char *argv[])
         display_a_digit(digit_win[7], digit[sec_units], isnear);
         touchwin(win1);
         wrefresh(win1);
-        i++;
     }
     destory_all_win(win1);
     endwin();

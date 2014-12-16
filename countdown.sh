@@ -27,8 +27,8 @@ function show_erro()
 while [ -n "$1" ];do
     case "$1" in
     -c) option="-c" ;;
-    -m) music=$2 ;;
-    -i) info=$2 ;;
+    -m) music="$2" ;;
+    -i) info="$2" ;;
      *) show_erro ;;
     esac
     if [ "$1" == "-c" ];then
@@ -41,7 +41,7 @@ SetTime
 s_seconds=`date -d $s_time +%s`
 c_seconds=`date +%s`
 e_seconds=$((s_seconds - c_seconds))
-./disclock $option $e_seconds $info
+./disclock $option $e_seconds "$info"
 if [ $? -eq 0 ];then
     if [ -n "$music" ];then
         mocp -S $music

@@ -216,6 +216,7 @@ int main(int argc, char *argv[])
         touchwin(win1);
         wrefresh(win1);
     }
+    free(str);
     destory_all_win(win1);
     endwin();
     return 0;

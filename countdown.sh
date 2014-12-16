@@ -37,6 +37,7 @@ while [ -n "$1" ];do
         shift 2
     fi
 done
+
 SetTime
 s_seconds=`date -d $s_time +%s`
 c_seconds=`date +%s`

@@ -27,13 +27,15 @@ function show_erro()
 while [ -n "$1" ];do
     case "$1" in
     -c) option="-c" ;;
-    -m) shift
-        music=$2 ;;
-    -i) shift
-        info=$2 ;;
+    -m) music=$2 ;;
+    -i) info=$2 ;;
      *) show_erro ;;
     esac
-    shift
+    if [ "$1" == "-c" ];then
+        shift
+    else
+        shift 2
+    fi
 done
 SetTime
 s_seconds=`date -d $s_time +%s`

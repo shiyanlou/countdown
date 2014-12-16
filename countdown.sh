@@ -14,6 +14,7 @@ function _exit()
     if [ -n "$music" ];then
         mocp -x
     fi
+    clear
     exit 0
 }
 
